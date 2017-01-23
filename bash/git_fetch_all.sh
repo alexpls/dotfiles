@@ -5,10 +5,10 @@
 
 AUTOFETCH_FILE="$HOME/.git_repos_autofetch"
 
-autofetch_git_repos() {
+git_fetch_all() {
   while read line; do
     echo "Fetching git repo: $line"
-    cd "$line" && git fetch
+    GIT_DIR="$line/.git" git fetch
   done < $AUTOFETCH_FILE
 }
 
