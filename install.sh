@@ -8,4 +8,6 @@ echo "
 source $(pwd)/attach.sh "$(pwd)"
 " >> ~/.bash_profile
 
+source ~/.bash_profile
+
 echo "Done!"
