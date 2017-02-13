@@ -1,8 +1,12 @@
 #!/bin/bash
 
 DOTFILES_DIR=$1
-BASH_DIR="$DOTFILES_DIR/bash"
 
-for fn in $BASH_DIR/*.sh; do
-  source $fn
-done
+function _source_all_in_dir {
+  for fn in $1/*.sh; do
+    source $fn
+  done
+}
+
+_source_all_in_dir "$DOTFILES_DIR/bash"
+_source_all_in_dir "$DOTFILES_DIR/git"
