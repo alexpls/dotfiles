@@ -25,4 +25,7 @@ source "$PROFILE_FILE"
 # Install tmux stuff
 cat "tmux/tmux.conf" >> ~/.tmux.conf
 
+# Install vim stuff
+cat "vim/vimrc" >> ~/.vimrc
+
 echo "Done!"
