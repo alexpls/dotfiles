@@ -12,3 +12,6 @@ git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 # List branches ordered by most recent commits
 git config --global alias.branchr 'branch --sort=-committerdate'
 git config --global pager.branchr true
+
+# Checkout a branch
+git config --global alias.cb 'checkout -b'
