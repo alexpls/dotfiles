@@ -5,12 +5,12 @@ set -e
 BASH_DIR="$(pwd)/bash"
 PROFILE_FILE=""
 
-if [[ -e /home/$USER/.bash_profile ]]; then
-  PROFILE_FILE="/home/$USER/.bash_profile"
-elif [[ -e /home/$USER/.profile ]]; then
-  PROFILE_FILE="/home/$USER/.profile"
+if [[ -e $HOME/.bash_profile ]]; then
+  PROFILE_FILE="$HOME/.bash_profile"
+elif [[ -e /$HOME/.profile ]]; then
+  PROFILE_FILE="/$HOME/.profile"
 else
-  echo "Could not figure out what your profile file is"
+  echo "[error] Could not figure out what your profile file is"
   exit 1
 fi
 
