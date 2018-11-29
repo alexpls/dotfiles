@@ -14,4 +14,7 @@ git config --global alias.branchr 'branch --sort=-committerdate'
 git config --global pager.branchr true
 
 # Checkout a branch
+git config --global alias.co 'checkout'
+
+# Checkout a new branch
 git config --global alias.cb 'checkout -b'
