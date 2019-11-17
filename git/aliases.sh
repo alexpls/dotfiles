@@ -3,6 +3,9 @@
 # push current branch to remote 'origin', setting upstream automatically
 git config --global alias.pushup 'push -u origin HEAD'
 
+# Force push (with lease)
+git config --global alias.pushf 'push --force-with-lease'
+
 # Stash all files (including untracked)
 git config --global alias.stash-all 'stash save --include-untracked'
 
@@ -18,3 +21,7 @@ git config --global alias.co 'checkout'
 
 # Checkout a new branch
 git config --global alias.cb 'checkout -b'
+
+# Amend a commit without needing to confirm a git message
+git config --global alias.amend 'commit --amend --no-edit'
+
