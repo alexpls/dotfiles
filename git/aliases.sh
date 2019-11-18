@@ -25,3 +25,5 @@ git config --global alias.cb 'checkout -b'
 # Amend a commit without needing to confirm a git message
 git config --global alias.amend 'commit --amend --no-edit'
 
+# Print the revision (truncated) of HEAD
+git config --global alias.rev "rev-parse --short HEAD"
