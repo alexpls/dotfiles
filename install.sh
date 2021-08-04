@@ -2,10 +2,11 @@
 
 set -e
 
-BASH_DIR="$(pwd)/bash"
 PROFILE_FILE=""
 
-if [[ -e $HOME/.bash_profile ]]; then
+if [[ "$SHELL" == *"zsh"* ]]; then
+  PROFILE_FILE="$HOME/.zshrc"
+elif [[ -e $HOME/.bash_profile ]]; then
   PROFILE_FILE="$HOME/.bash_profile"
 elif [[ -e /$HOME/.profile ]]; then
   PROFILE_FILE="/$HOME/.profile"

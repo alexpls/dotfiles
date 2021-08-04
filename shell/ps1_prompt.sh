@@ -22,5 +22,8 @@ LIGHT_GRAY="\[\033[90m\]"
 LIGHT_BLUE="\[\033[1;34m\]"
 DEFAULT="\[\033[0m\]"
 
-export PS1="${LIGHT_GRAY}\u@\h${DEFAULT}:\w${LIGHT_BLUE}\$(cwd_git_branch_formatted)\$(cwd_git_repo_changes_formatted)${DEFAULT}\n${LIGHT_GRAY}\$${DEFAULT} "
-
+# Only add the PS1 prompt to bash shell, when using zsh there's usually
+# a nice prompt configured anyway.
+if [[ "$SHELL" == *"bash"* ]]; then
+  export PS1="${LIGHT_GRAY}\u@\h${DEFAULT}:\w${LIGHT_BLUE}\$(cwd_git_branch_formatted)\$(cwd_git_repo_changes_formatted)${DEFAULT}\n${LIGHT_GRAY}\$${DEFAULT} "
+fi

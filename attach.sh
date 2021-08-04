@@ -8,5 +8,5 @@ function _source_all_in_dir {
   done
 }
 
-_source_all_in_dir "$DOTFILES_DIR/bash"
+_source_all_in_dir "$DOTFILES_DIR/shell"
 _source_all_in_dir "$DOTFILES_DIR/git"
