@@ -29,4 +29,6 @@ cat "tmux/tmux.conf" >> ~/.tmux.conf
 # Install vim stuff
 cat "vim/vimrc" >> ~/.vimrc
 
+cat "git/gitignore_global" >> ~/.gitignore_global
+
 echo "Done!"

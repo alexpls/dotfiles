@@ -1,0 +1,5 @@
+# macOS indexing file, haven't ever needed to commit this to a repo
+.DS_Store
+
+# Used across repos for common helper scripts that I don't want to commit
+.x
