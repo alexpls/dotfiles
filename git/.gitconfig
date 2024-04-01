@@ -1,0 +1,23 @@
+[user]
+	name = Alex Plescan
+	email = alexpls@fastmail.com
+	signingkey = 0C88A905360A073F
+[alias]
+	pushup = push -u origin HEAD
+	pushf = push --force-with-lease
+	branchr = branch --sort=-committerdate
+	co = checkout
+	cb = checkout -b
+	amend = commit --amend --no-edit
+	rev = rev-parse --short HEAD
+[pager]
+	branchr = true
+[core]
+	excludesfile = /Users/alex/.gitignore_global
+[commit]
+  gpgsign = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
