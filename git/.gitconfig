@@ -13,7 +13,7 @@
 [pager]
 	branchr = true
 [core]
-	excludesfile = /Users/alex/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [commit]
   gpgsign = true
 [filter "lfs"]
