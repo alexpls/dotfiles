@@ -7,6 +7,8 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
+vim.opt.scrolloff = 3
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -23,9 +25,16 @@ vim.opt.rtp:prepend(lazypath)
 plugins = {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
+    config = function ()
+      require("tokyonight").setup({
+        transparent = true,
+        terminal_colors = true,
+	styles = {
+		sidebars = "dark",
+		floats = "dark",
+	},
+      })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -77,6 +86,7 @@ plugins = {
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
+  {"wakatime/vim-wakatime", lazy = false},
 }
 
 opts = {}
@@ -88,6 +98,8 @@ function in_git_dir()
 end
 
 vim.cmd[[colorscheme tokyonight]]
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
  
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", function ()
