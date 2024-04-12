@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # via: https://github.com/ThePrimeagen/.dotfiles/blob/602019e902634188ab06ea31251c01c1a43d1621/bin/.local/scripts/tmux-sessionizer
 
-selected=$(find ~/Projects ~/Code -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
+selected=$(find ~/Projects ~/Code ~/Code/zendesk -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf)
 
 if [[ -z $selected ]]; then
   exit 0
