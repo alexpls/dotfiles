@@ -120,7 +120,8 @@ end)
 
 require'lspconfig'.gopls.setup{}
 
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
 
 local harpoon = require("harpoon")
 harpoon:setup()
