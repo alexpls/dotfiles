@@ -128,6 +128,7 @@ end)
 
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.ruby_lsp.setup{}
 
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
 
