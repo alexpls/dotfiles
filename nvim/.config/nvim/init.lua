@@ -1,13 +1,27 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.opt.number = true
+vim.opt.showmode = false
+vim.opt.scrolloff = 10
+vim.opt.undofile = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.signcolumn = "yes"
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+vim.opt.hlsearch = true
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch</cmd>")
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
-vim.opt.nu = true
-
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-
-vim.opt.scrolloff = 3
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -23,6 +37,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 plugins = {
+  {"tpope/vim-sleuth"},
   {
     "folke/tokyonight.nvim",
     config = function ()
@@ -121,7 +136,6 @@ end)
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.tsserver.setup{}
 
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
 
 local harpoon = require("harpoon")
