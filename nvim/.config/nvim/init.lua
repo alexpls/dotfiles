@@ -119,6 +119,7 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 require'lspconfig'.gopls.setup{}
+require'lspconfig'.tsserver.setup{}
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
