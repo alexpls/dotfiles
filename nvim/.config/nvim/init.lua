@@ -102,6 +102,8 @@ plugins = {
     dependencies = { "nvim-lua/plenary.nvim" }
   },
   {"wakatime/vim-wakatime", lazy = false},
+  {"tpope/vim-fugitive"},
+  {"tpope/vim-rhubarb"},
 }
 
 opts = {}
