@@ -108,22 +108,13 @@ opts = {}
 
 require("lazy").setup(plugins, opts)
 
-function in_git_dir()
-  return vim.fn.system("git rev-parse --is-inside-work-tree") == "true"
-end
-
 vim.cmd[[colorscheme tokyonight]]
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
  
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", function ()
-  if in_git_dir() then
-    builtin.git_files()
-  else
-    builtin.find_files()
-  end
-end)
+vim.keymap.set("n", "<leader>ff", builtin.git_files)
+vim.keymap.set("n", "<leader>fp", builtin.find_files)
 vim.keymap.set("n", "<leader>fs", builtin.live_grep)
 vim.keymap.set("n", "<leader>fd", builtin.grep_string)
 
