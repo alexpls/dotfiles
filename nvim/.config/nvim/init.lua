@@ -63,6 +63,13 @@ plugins = {
 	      highlight = { enable = true },
         indent = { enable = true },
         textobjects = {
+          select = {
+            enable = true,
+            keymaps = {
+              ["ab"] = "@block.outer",
+              ["ib"] = "@block.inner",
+            },
+          },
           move = {
             enable = true,
             set_jumps = true,
