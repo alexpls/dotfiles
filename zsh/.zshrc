@@ -20,6 +20,8 @@ function notify {
   fi
 }
 
+eval "$(fzf --zsh)"
+
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
 fi
