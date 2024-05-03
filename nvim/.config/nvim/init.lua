@@ -149,3 +149,4 @@ vim.keymap.set("n", "<leader>h2", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<leader>h3", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<leader>h4", function() harpoon:list():select(4) end)
 
+require("codeowners")
