@@ -61,7 +61,7 @@ codeowners.for_file = function(path)
   return parse_output_line(out)
 end
 
-vim.api.nvim_create_user_command('Codeowners', function()
+codeowners.print = function()
   local buf_relative_path = vim.fn.expand("%")
   local co = codeowners.for_file(buf_relative_path)
   if co == nil then
@@ -71,6 +71,10 @@ vim.api.nvim_create_user_command('Codeowners', function()
     return
   end
   vim.print(table.concat(co.owners, ", "))
+end
+
+vim.api.nvim_create_user_command('Codeowners', function()
+  codeowners.print()
 end, {})
 
 return codeowners

@@ -161,7 +161,6 @@ require 'lspconfig'.lua_ls.setup {
   },
 }
 
-vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
 
 local harpoon = require("harpoon")
 harpoon:setup()
@@ -184,4 +183,8 @@ vim.keymap.set('n', '<C-w>l', require('smart-splits').move_cursor_right)
 
 require("codeowners")
 
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+
+vim.keymap.set("n", "<leader>co", codeowners.print)
 vim.keymap.set("n", "<leader>pe", vim.cmd.Ex)
+
