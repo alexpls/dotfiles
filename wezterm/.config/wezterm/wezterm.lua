@@ -9,7 +9,7 @@ color_scheme.apply_to_config(config)
 config.font = wezterm.font('Berkeley Mono')
 config.font_size = 13
 
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.95
 config.macos_window_background_blur = 40
 config.window_decorations = "RESIZE"
 config.window_padding = {
