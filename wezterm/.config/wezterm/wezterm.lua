@@ -98,31 +98,7 @@ config.keys = {
     key = 'f',
     mods = 'LEADER',
     action = wezterm.action_callback(function(window, pane)
-      local project_dirs = projects.get()
-      local choices = {}
-
-      for _, value in ipairs(project_dirs) do
-        table.insert(choices, { label = value })
-      end
-
-      window:perform_action(
-        act.InputSelector {
-          title = "Workspaces",
-          choices = choices,
-          fuzzy = true,
-          action = wezterm.action_callback(function(child_window, child_pane, id, label)
-            if label then
-              child_window:perform_action(act.SwitchToWorkspace {
-                name = label:match("([^/]+)$"),
-                spawn = {
-                  cwd = label,
-                }
-              }, child_pane)
-            end
-          end),
-        },
-        pane
-      )
+      window:perform_action(projects.present_input_selector(), pane)
     end),
   },
 }

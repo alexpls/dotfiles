@@ -8,7 +8,7 @@ local function h(path)
   return wezterm.home_dir .. "/" .. path
 end
 
-function module.get()
+function module.get_dirs()
   local project_dirs = { h('Code/*'), h('Projects/*') }
   local projects = { h(), h('dotfiles') }
   for _, dir in ipairs(project_dirs) do
@@ -17,6 +17,29 @@ function module.get()
     end
   end
   return projects
+end
+
+function module.present_input_selector()
+  local choices = {}
+  for _, value in ipairs(module.get_dirs()) do
+    table.insert(choices, { label = value })
+  end
+
+  return wezterm.action.InputSelector {
+    title = "Workspaces",
+    choices = choices,
+    fuzzy = true,
+    action = wezterm.action_callback(function(child_window, child_pane, id, label)
+      if label then
+        child_window:perform_action(wezterm.action.SwitchToWorkspace {
+          name = label:match("([^/]+)$"),
+          spawn = {
+            cwd = label,
+          }
+        }, child_pane)
+      end
+    end),
+  }
 end
 
 return module
