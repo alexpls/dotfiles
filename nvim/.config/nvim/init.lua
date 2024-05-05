@@ -38,6 +38,14 @@ vim.opt.rtp:prepend(lazypath)
 
 plugins = {
   { "tpope/vim-sleuth" },
+  { "tpope/vim-fugitive" },
+  { "tpope/vim-rhubarb" },
+  { "neovim/nvim-lspconfig" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/nvim-cmp" },
+  { "L3MON4D3/LuaSnip" },
+  { "wakatime/vim-wakatime",        lazy = false },
+  { 'mrjones2014/smart-splits.nvim' },
   {
     "folke/tokyonight.nvim",
     config = function()
@@ -58,7 +66,7 @@ plugins = {
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "html", "css", "elixir", "heex", "typescript", "ruby", "go" },
+        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "html", "css", "elixir", "heex", "typescript", "ruby", "go", "markdown", },
         sync_install = true,
         highlight = { enable = true },
         indent = { enable = true },
@@ -99,18 +107,11 @@ plugins = {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
   },
-  { "neovim/nvim-lspconfig" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/nvim-cmp" },
-  { "L3MON4D3/LuaSnip" },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
-  { "wakatime/vim-wakatime", lazy = false },
-  { "tpope/vim-fugitive" },
-  { "tpope/vim-rhubarb" },
 }
 
 opts = {}
@@ -171,6 +172,15 @@ vim.keymap.set("n", "<leader>h1", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<leader>h2", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<leader>h3", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<leader>h4", function() harpoon:list():select(4) end)
+
+vim.keymap.set('n', '<C-w>+', require('smart-splits').resize_up)
+vim.keymap.set('n', '<C-w>-', require('smart-splits').resize_down)
+vim.keymap.set('n', '<C-w><', require('smart-splits').resize_left)
+vim.keymap.set('n', '<C-w>>', require('smart-splits').resize_right)
+vim.keymap.set('n', '<C-w>h', require('smart-splits').move_cursor_left)
+vim.keymap.set('n', '<C-w>j', require('smart-splits').move_cursor_down)
+vim.keymap.set('n', '<C-w>k', require('smart-splits').move_cursor_up)
+vim.keymap.set('n', '<C-w>l', require('smart-splits').move_cursor_right)
 
 require("codeowners")
 

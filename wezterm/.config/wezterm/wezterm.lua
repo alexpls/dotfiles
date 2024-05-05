@@ -1,10 +1,9 @@
 local wezterm = require 'wezterm'
 local color_scheme = require 'color_scheme'
 local projects = require 'projects'
+local smart_splits = require 'smart_splits'
 local act = wezterm.action
 local config = wezterm.config_builder()
-
-color_scheme.apply_to_config(config)
 
 config.font = wezterm.font('Berkeley Mono')
 config.font_size = 13
@@ -60,36 +59,6 @@ config.keys = {
     action = act.SendKey { key = 'a', mods = 'CTRL' },
   },
   {
-    key = '%',
-    mods = 'LEADER',
-    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
-  },
-  {
-    key = '"',
-    mods = 'LEADER',
-    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
-  },
-  {
-    key = 'h',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Left',
-  },
-  {
-    key = 'l',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Right',
-  },
-  {
-    key = 'j',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Down',
-  },
-  {
-    key = 'k',
-    mods = 'LEADER',
-    action = act.ActivatePaneDirection 'Up',
-  },
-  {
     key = 'p',
     mods = 'LEADER',
     action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },
@@ -102,5 +71,8 @@ config.keys = {
     end),
   },
 }
+
+color_scheme.apply_to_config(config)
+smart_splits.apply_to_config(config)
 
 return config
