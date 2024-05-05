@@ -37,30 +37,30 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 plugins = {
-  {"tpope/vim-sleuth"},
+  { "tpope/vim-sleuth" },
   {
     "folke/tokyonight.nvim",
-    config = function ()
+    config = function()
       require("tokyonight").setup({
         transparent = true,
         terminal_colors = true,
-	styles = {
-		sidebars = "dark",
-		floats = "dark",
-	},
+        styles = {
+          sidebars = "dark",
+          floats = "dark",
+        },
       })
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function ()
+    config = function()
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-	      ensure_installed = { "lua", "vim", "vimdoc", "javascript", "html", "css", "elixir", "heex", "typescript", "ruby", "go" },
-	      sync_install = true,
-	      highlight = { enable = true },
+        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "html", "css", "elixir", "heex", "typescript", "ruby", "go" },
+        sync_install = true,
+        highlight = { enable = true },
         indent = { enable = true },
         textobjects = {
           select = {
@@ -90,7 +90,7 @@ plugins = {
       })
     end,
   },
-  {"nvim-treesitter/nvim-treesitter-textobjects"},
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -99,28 +99,28 @@ plugins = {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
   },
-  {"neovim/nvim-lspconfig"},
-  {"hrsh7th/cmp-nvim-lsp"},
-  {"hrsh7th/nvim-cmp"},
-  {"L3MON4D3/LuaSnip"},
+  { "neovim/nvim-lspconfig" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/nvim-cmp" },
+  { "L3MON4D3/LuaSnip" },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
-  {"wakatime/vim-wakatime", lazy = false},
-  {"tpope/vim-fugitive"},
-  {"tpope/vim-rhubarb"},
+  { "wakatime/vim-wakatime", lazy = false },
+  { "tpope/vim-fugitive" },
+  { "tpope/vim-rhubarb" },
 }
 
 opts = {}
 
 require("lazy").setup(plugins, opts)
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd.colorscheme(vim.o.background == 'dark' and 'tokyonight' or 'tokyonight-day')
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
- 
+
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.git_files)
 vim.keymap.set("n", "<leader>fp", builtin.find_files)
@@ -128,14 +128,37 @@ vim.keymap.set("n", "<leader>fs", builtin.live_grep)
 vim.keymap.set("n", "<leader>fd", builtin.grep_string)
 
 local lsp_zero = require("lsp-zero")
-lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({buffer = bufnr})
+lsp_zero.on_attach(function(_, bufnr)
+  lsp_zero.default_keymaps({ buffer = bufnr })
   lsp_zero.buffer_autoformat()
 end)
 
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.ruby_lsp.setup{}
+require 'lspconfig'.gopls.setup {}
+require 'lspconfig'.tsserver.setup {}
+require 'lspconfig'.ruby_lsp.setup {}
+require 'lspconfig'.lua_ls.setup {
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+      return
+    end
+
+    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      runtime = {
+        version = 'LuaJIT'
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME
+        }
+      }
+    })
+  end,
+  settings = {
+    Lua = {},
+  },
+}
 
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action)
 
