@@ -75,4 +75,11 @@ config.keys = {
 color_scheme.apply_to_config(config)
 smart_splits.apply_to_config(config)
 
+-- add a local_config module for machine specific configuration that
+-- shouldn't be committed to the repo.
+local has_local_config, local_config = pcall(require, "local_config")
+if has_local_config then
+  local_config.apply_to_config(config)
+end
+
 return config
