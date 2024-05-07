@@ -70,6 +70,11 @@ config.keys = {
       window:perform_action(projects.present_input_selector(), pane)
     end),
   },
+  {
+    key = 'z',
+    mods = 'LEADER',
+    action = act.TogglePaneZoomState,
+  },
 }
 
 color_scheme.apply_to_config(config)
