@@ -8,9 +8,9 @@ local config = wezterm.config_builder()
 config.font = wezterm.font('Berkeley Mono')
 config.font_size = 13
 
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.75
 config.macos_window_background_blur = 40
-config.window_decorations = "RESIZE"
+config.window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW"
 config.window_padding = {
   top = '0.5cell',
   bottom = 0,
