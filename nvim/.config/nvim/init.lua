@@ -134,6 +134,9 @@ lsp_zero.on_attach(function(_, bufnr)
   lsp_zero.buffer_autoformat()
 end)
 
+require 'lspconfig'.elixirls.setup {
+  cmd = { "/opt/homebrew/bin/elixir-ls" },
+}
 require 'lspconfig'.gopls.setup {}
 require 'lspconfig'.tsserver.setup {}
 require 'lspconfig'.ruby_lsp.setup {}
