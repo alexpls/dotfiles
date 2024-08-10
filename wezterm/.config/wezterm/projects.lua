@@ -8,10 +8,10 @@ local function h(path)
   return wezterm.home_dir .. "/" .. path
 end
 
-function module.get_dirs()
-  local project_dirs = { h('Code/*'), h('Code/zendesk/*'), h('Projects/*') }
+local function project_dirs()
+  local dirs = { h('Code/*'), h('Code/zendesk/*'), h('Projects/*') }
   local projects = { h(), h('dotfiles') }
-  for _, dir in ipairs(project_dirs) do
+  for _, dir in ipairs(dirs) do
     for _, p in ipairs(wezterm.glob(dir)) do
       table.insert(projects, p)
     end
@@ -19,9 +19,9 @@ function module.get_dirs()
   return projects
 end
 
-function module.present_input_selector()
+function module.choose_project()
   local choices = {}
-  for _, value in ipairs(module.get_dirs()) do
+  for _, value in ipairs(project_dirs()) do
     table.insert(choices, { label = value })
   end
 
