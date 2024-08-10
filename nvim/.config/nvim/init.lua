@@ -19,6 +19,24 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>y", '"*y')
 vim.keymap.set("x", "<leader>y", '"*y')
 
+vim.filetype.add({
+  extension = {
+    -- neovim's default likes to set files ending with .html and containing
+    -- curly braces to the htmlangular filetype, which doesn't work for me.
+    -- Override it!
+    -- https://github.com/neovim/neovim/blob/4e8efe002e976de1a22dcce6a1e800aeb6acad70/runtime/lua/vim/filetype/detect.lua#L728
+    html = function(_, bufnr)
+      for _, line in ipairs(vim.api.nvim_buf_get_lines(bufnr, 1, 40, false)) do
+        if vim.regex([[{{ .* }}]]):match_str(line) ~= nil then
+          return 'gohtmltmpl'
+        else
+          return 'html'
+        end
+      end
+    end
+  },
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
   callback = function()
@@ -40,15 +58,23 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  -- heuristically set buffer options (e.g. shiftwidth, expandtab)
   { "tpope/vim-sleuth" },
+  -- git wrapper
   { "tpope/vim-fugitive" },
+  -- github extension for vim-fugitive
   { "tpope/vim-rhubarb" },
+  -- quickstart configs for nvim lsp
   { "neovim/nvim-lspconfig" },
+  -- source completions from lsp
   { "hrsh7th/cmp-nvim-lsp" },
+  -- compeltions engine
   { "hrsh7th/nvim-cmp" },
-  { "L3MON4D3/LuaSnip" },
+  -- track time spent in editor
   { "wakatime/vim-wakatime",        lazy = false },
+  -- make splits work across nvim and its host terminal
   { 'mrjones2014/smart-splits.nvim' },
+  -- pretty colour scheme
   {
     "folke/tokyonight.nvim",
     config = function()
@@ -62,6 +88,7 @@ local plugins = {
       })
     end,
   },
+  -- syntax highlighting, objects, treesitter!
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -101,19 +128,37 @@ local plugins = {
       })
     end,
   },
+  -- textobjects for treesitter, to help with selecting ruby blocks
   { "nvim-treesitter/nvim-treesitter-textobjects" },
+  -- fuzzy finder
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
+  -- easier lsp configuration
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
   },
+  -- quick navigation between buffers
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" }
+  },
+  -- go goodies
+  {
+    "ray-x/go.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { 'go', 'gomod', 'gohtmltmpl' },
+    build = ':lua require("go.install").update_all_sync()'
   },
 }
 
@@ -142,6 +187,7 @@ require 'lspconfig'.elixirls.setup {
 require 'lspconfig'.gopls.setup {}
 require 'lspconfig'.tsserver.setup {}
 require 'lspconfig'.ruby_lsp.setup {}
+require 'lspconfig'.tailwindcss.setup {}
 require 'lspconfig'.lua_ls.setup {
   on_init = function(client)
     local path = client.workspace_folders[1].name
