@@ -127,6 +127,7 @@ vim.keymap.set("n", "<leader>ff", builtin.git_files)
 vim.keymap.set("n", "<leader>fp", builtin.find_files)
 vim.keymap.set("n", "<leader>fs", builtin.live_grep)
 vim.keymap.set("n", "<leader>fd", builtin.grep_string)
+vim.keymap.set("n", "<leader>fb", builtin.buffers)
 
 local lsp_zero = require("lsp-zero")
 lsp_zero.on_attach(function(_, bufnr)
@@ -190,4 +191,3 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 
 vim.keymap.set("n", "<leader>co", codeowners.print)
 vim.keymap.set("n", "<leader>pe", vim.cmd.Ex)
-
