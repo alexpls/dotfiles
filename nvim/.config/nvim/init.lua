@@ -15,6 +15,9 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+-- Copy to system clipboard
+vim.keymap.set("n", "<leader>y", '"*y')
+vim.keymap.set("x", "<leader>y", '"*y')
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
@@ -36,7 +39,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-plugins = {
+local plugins = {
   { "tpope/vim-sleuth" },
   { "tpope/vim-fugitive" },
   { "tpope/vim-rhubarb" },
@@ -114,9 +117,7 @@ plugins = {
   },
 }
 
-opts = {}
-
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins, {})
 
 vim.cmd.colorscheme(vim.o.background == 'dark' and 'tokyonight' or 'tokyonight-day')
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
