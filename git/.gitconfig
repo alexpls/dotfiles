@@ -2,6 +2,8 @@
 	name = Alex Plescan
 	email = alexpls@fastmail.com
 	signingkey = 0C88A905360A073F
+[pull]
+	rebase = true
 [alias]
 	pushup = push -u origin HEAD
 	pushf = push --force-with-lease
@@ -15,7 +17,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 [commit]
-  gpgsign = true
+	  gpgsign = true
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
