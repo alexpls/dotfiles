@@ -30,7 +30,7 @@ local function segments_for_right_status(window)
 end
 
 wezterm.on('update-status', function(window, _)
-  local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+  local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
   local segments = segments_for_right_status(window)
 
   local color_scheme = window:effective_config().resolved_palette
@@ -43,7 +43,7 @@ wezterm.on('update-status', function(window, _)
   -- Each powerline segment is going to be coloured progressively
   -- darker/lighter depending on whether we're on a dark/light colour
   -- scheme. Let's establish the "from" and "to" bounds of our gradient.
-  local gradient_to, gradient_from = bg
+  local gradient_to, gradient_from = bg, bg
   if appearance.is_dark() then
     gradient_from = gradient_to:lighten(0.2)
   else
