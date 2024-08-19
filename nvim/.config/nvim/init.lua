@@ -160,6 +160,24 @@ local plugins = {
     ft = { 'go', 'gomod', 'gohtmltmpl' },
     build = ':lua require("go.install").update_all_sync()'
   },
+  -- ui component library
+  {
+    "MunifTanjim/nui.nvim",
+  },
+  -- file tree
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("neo-tree").setup({
+        hijack_netrw_behavior = "open_default",
+      })
+    end,
+  },
 }
 
 require("lazy").setup(plugins, {})
@@ -238,3 +256,5 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 
 vim.keymap.set("n", "<leader>co", codeowners.print)
 vim.keymap.set("n", "<leader>pe", vim.cmd.Ex)
+
+vim.keymap.set("n", "<leader>bb", "<cmd>Neotree toggle<CR>")
