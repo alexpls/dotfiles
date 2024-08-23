@@ -175,6 +175,11 @@ local plugins = {
     config = function()
       require("neo-tree").setup({
         hijack_netrw_behavior = "open_default",
+        buffers = {
+          follow_current_file = {
+            enabled = true,
+          },
+        },
       })
     end,
   },
@@ -258,3 +263,4 @@ vim.keymap.set("n", "<leader>co", codeowners.print)
 vim.keymap.set("n", "<leader>pe", vim.cmd.Ex)
 
 vim.keymap.set("n", "<leader>bb", "<cmd>Neotree toggle<CR>")
+vim.keymap.set("n", "<leader>bg", "<cmd>Neotree toggle git_status<CR>")
