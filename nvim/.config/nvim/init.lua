@@ -270,7 +270,6 @@ require("codeowners")
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 
 vim.keymap.set("n", "<leader>co", codeowners.print)
-vim.keymap.set("n", "<leader>pe", vim.cmd.Ex)
 
 vim.keymap.set("n", "<leader>bb", "<cmd>Neotree toggle<CR>")
 vim.keymap.set("n", "<leader>bg", "<cmd>Neotree toggle git_status<CR>")
