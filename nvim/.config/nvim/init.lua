@@ -61,7 +61,17 @@ local plugins = {
   -- heuristically set buffer options (e.g. shiftwidth, expandtab)
   { "tpope/vim-sleuth" },
   -- git wrapper
-  { "tpope/vim-fugitive" },
+  {
+    "tpope/vim-fugitive",
+    config = function()
+      -- Browse git remote
+      vim.keymap.set("n", "<leader>gb", '<cmd>GBrowse<CR>')
+      vim.keymap.set("v", "<leader>gb", ':GBrowse<CR>')
+      -- Copy git remote URL to clipboard
+      vim.keymap.set("n", "<leader>gy", '<cmd>GBrowse!<CR>')
+      vim.keymap.set("v", "<leader>gy", ':GBrowse!<CR>')
+    end,
+  },
   -- github extension for vim-fugitive
   { "tpope/vim-rhubarb" },
   -- quickstart configs for nvim lsp
