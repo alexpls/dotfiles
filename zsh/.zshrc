@@ -6,7 +6,6 @@ export HISTFILE="$HOME/.history"
 EDITOR=nvim
 
 alias ls='ls --color=auto'
-alias vim='nvim'
 
 function external-ip {
   dig +short myip.opendns.com @resolver1.opendns.com
