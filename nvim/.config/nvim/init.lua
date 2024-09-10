@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -38,7 +38,7 @@ vim.keymap.set("n", "<C-l>", "<cmd>nohlsearch<CR><C-l>")
 vim.keymap.set("i", "<C-l>", "<cmd>nohlsearch<CR>")
 
 -- Copy to system clipboard
-vim.keymap.set({"n", "x"}, "<leader>y", '"*y')
+vim.keymap.set({ "n", "x" }, "<leader>y", '"*y')
 
 -- Codeowners actions
 vim.keymap.set("n", "<leader>co", require("codeowners").print)
@@ -98,8 +98,8 @@ local plugins = {
 
       local lsp_attach = function(_, bufnr)
         local opts = { buffer = bufnr }
-        -- LSP actions
         vim.keymap.set("n", "<leader>ca", "<cmd>vim.lsp.buf.code_action()<CR>", opts)
+        lsp_zero.buffer_autoformat()
       end
 
       lsp_zero.extend_lspconfig({
@@ -150,7 +150,24 @@ local plugins = {
   -- source completions from lsp
   { "hrsh7th/cmp-nvim-lsp" },
   -- compeltions engine
-  { "hrsh7th/nvim-cmp" },
+  {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      local cmp = require("cmp")
+
+      cmp.setup({
+        sources = {
+          { name = "nvim_lsp" },
+        },
+        snippet = {
+          expand = function(args)
+            vim.snippet.expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({}),
+      })
+    end
+  },
   -- track time spent in editor
   { "wakatime/vim-wakatime", lazy = false },
   -- make splits work across nvim and its host terminal
