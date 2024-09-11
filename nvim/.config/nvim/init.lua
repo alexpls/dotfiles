@@ -98,6 +98,7 @@ local plugins = {
 
       local lsp_attach = function(_, bufnr)
         local opts = { buffer = bufnr }
+        lsp_zero.default_keymaps({ buffer = bufnr })
         vim.keymap.set("n", "<leader>ca", "<cmd>vim.lsp.buf.code_action()<CR>", opts)
         lsp_zero.buffer_autoformat()
       end
