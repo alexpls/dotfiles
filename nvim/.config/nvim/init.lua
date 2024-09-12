@@ -131,7 +131,8 @@ local plugins = {
               checkThirdParty = false,
               library = {
                 vim.env.VIMRUNTIME,
-                "${3rd}/luv/library"
+                "${3rd}/luv/library",
+                vim.env.HOME .. "/.hammerspoon/Spoons/EmmyLua.spoon/annotations",
               }
             }
           })

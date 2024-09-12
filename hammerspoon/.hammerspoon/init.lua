@@ -1,3 +1,5 @@
+hs.loadSpoon("EmmyLua") -- generate lua annotations for LSP
+
 local function toggleWezterm()
   local term = hs.application.find("Wezterm")
   if term == nil then
