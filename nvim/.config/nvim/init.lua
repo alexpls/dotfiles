@@ -253,12 +253,12 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>ff", builtin.git_files)
-      vim.keymap.set("n", "<leader>fp", builtin.find_files)
-      vim.keymap.set("n", "<leader>fs", builtin.live_grep)
-      vim.keymap.set("n", "<leader>fd", builtin.grep_string)
-      vim.keymap.set("n", "<leader>fb", builtin.buffers)
+      vim.keymap.set("n", "<leader>ff",
+        ':lua require("telescope.builtin").find_files({ find_command = { "rg", "--files", "--hidden", "-g", "!.git" }})<cr>')
+      vim.keymap.set("n", "<leader>fg", ':lua require("telescope.builtin").git_files()<cr>')
+      vim.keymap.set("n", "<leader>fs", ':lua require("telescope.builtin").live_grep()<cr>')
+      vim.keymap.set("n", "<leader>fd", ':lua require("telescope.builtin").grep_string()<cr>')
+      vim.keymap.set("n", "<leader>fb", ':lua require("telescope.builtin").buffers()<cr>')
     end
   },
   -- quick navigation between buffers
