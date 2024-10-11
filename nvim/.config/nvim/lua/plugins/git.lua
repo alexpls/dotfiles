@@ -16,4 +16,10 @@ return {
       { "<leader>gy", ":GBrowse!<CR>",    mode = "v" }
     },
   },
+  {
+    -- adds gutter symbols for git added/modified/removed lines
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile", },
+    config = true
+  }
 }
