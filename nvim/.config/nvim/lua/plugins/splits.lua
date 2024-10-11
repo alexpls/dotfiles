@@ -2,6 +2,7 @@ return {
   -- make splits work across nvim and its host terminal
   {
     "mrjones2014/smart-splits.nvim",
+    lazy = false,
     keys = {
       { "<C-w>+", function() require("smart-splits").resize_up() end },
       { "<C-w>-", function() require("smart-splits").resize_down() end },
