@@ -4,6 +4,8 @@
 	signingkey = 0C88A905360A073F
 [pull]
 	rebase = true
+[rebase]
+	autostash = true
 [alias]
 	pushup = push -u origin HEAD
 	pushf = push --force-with-lease
