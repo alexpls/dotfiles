@@ -6,3 +6,6 @@ vim.keymap.set({ "n", "x" }, "<leader>y", '"*y')
 
 -- Codeowners actions
 vim.keymap.set("n", "<leader>co", require("codeowners").print)
+
+-- Open diagnostic
+vim.keymap.set("n", "<leader>ce", vim.diagnostic.open_float)
