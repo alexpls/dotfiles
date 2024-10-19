@@ -24,6 +24,7 @@ function git-recent-committers {
 }
 
 eval "$(fzf --zsh)"
+eval "$(atuin init zsh)"
 
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
