@@ -86,7 +86,7 @@ config.set_environment_variables = {
   PATH = '/opt/homebrew/bin:' .. os.getenv('PATH')
 }
 
-config.leader = { key = 'w', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.leader = { key = ' ', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
   {
     key = 'LeftArrow',
@@ -107,9 +107,9 @@ config.keys = {
     },
   },
   {
-    key = 'j',
+    key = ' ',
     mods = 'LEADER|CTRL',
-    action = act.SendKey { key = 'j', mods = 'CTRL' },
+    action = act.SendKey { key = ' ', mods = 'CTRL' },
   },
   {
     key = 'p',
