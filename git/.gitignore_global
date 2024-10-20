@@ -3,3 +3,6 @@
 
 # Used across repos for common helper scripts that I don't want to commit
 .x
+
+# Ignore jujutsu dir on existing git projects
+.jj
