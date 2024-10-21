@@ -69,3 +69,16 @@ end)
 hs.hotkey.bind({ "cmd" }, "\\", function()
   chooser:show()
 end)
+
+-- cmd+shift+c to copy current URL in firefox, mimicing arc browser
+--
+-- one day firefox might support applescript, in which case this
+-- could be made more robust: https://bugzilla.mozilla.org/show_bug.cgi?id=125419
+hs.hotkey.bind({ "cmd", "shift" }, "c", function()
+  local ff = hs.application.find("Firefox")
+  if ff and ff:isFrontmost() then
+    hs.eventtap.keyStroke({ "cmd" }, "l", 0, ff) -- focus address bar
+    hs.eventtap.keyStroke({ "cmd" }, "c", 0, ff) -- copy contents
+    hs.eventtap.keyStroke({}, "escape", 0, ff)   -- unfocus address bar
+  end
+end)
