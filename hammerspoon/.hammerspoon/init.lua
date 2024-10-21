@@ -74,7 +74,7 @@ end)
 --
 -- one day firefox might support applescript, in which case this
 -- could be made more robust: https://bugzilla.mozilla.org/show_bug.cgi?id=125419
-hs.hotkey.bind({ "cmd", "shift" }, "c", function()
+local firefoxOpenUrlHotkey = hs.hotkey.new({ "cmd", "shift" }, "c", function()
   local ff = hs.application.find("Firefox")
   if ff and ff:isFrontmost() then
     hs.eventtap.keyStroke({ "cmd" }, "l", 0, ff) -- focus address bar
@@ -82,3 +82,11 @@ hs.hotkey.bind({ "cmd", "shift" }, "c", function()
     hs.eventtap.keyStroke({}, "escape", 0, ff)   -- unfocus address bar
   end
 end)
+local firefoxFilter = hs.window.filter.new("Firefox")
+firefoxFilter
+    :subscribe(hs.window.filter.windowFocused, function()
+      firefoxOpenUrlHotkey:enable()
+    end)
+    :subscribe(hs.window.filter.windowUnfocused, function()
+      firefoxOpenUrlHotkey:disable()
+    end)
