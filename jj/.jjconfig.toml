@@ -4,6 +4,7 @@ email = "alexpls@fastmail.com"
 
 [ui]
 default-command = "log"
+editor = "nvim"
 
 [signing]
 sign-all = true
