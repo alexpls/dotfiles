@@ -1,0 +1,11 @@
+[user]
+name = "Alex Plescan"
+email = "alexpls@fastmail.com"
+
+[ui]
+default-command = "log"
+
+[signing]
+sign-all = true
+backend = "gpg"
+key = "0C88A905360A073F"
