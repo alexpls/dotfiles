@@ -1,6 +1,7 @@
 vim.opt.number = true         -- show line numbers
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.scrolloff = 10        -- num screen lines to show above/below cursor
+vim.opt.colorcolumn = "80"    -- vertical marker at 80 cols
 vim.opt.undofile = true       -- persist undo history to file
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 1000     -- after this many seconds without input, save swap file
