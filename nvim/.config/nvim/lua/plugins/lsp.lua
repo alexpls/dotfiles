@@ -57,6 +57,9 @@ return {
         local opts = { buffer = bufnr }
         lsp_zero.default_keymaps(opts)
         lsp_zero.buffer_autoformat()
+
+        vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+        vim.keymap.set('n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
       end
 
       lsp_zero.extend_lspconfig({
