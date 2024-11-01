@@ -6,3 +6,6 @@
 
 # Ignore jujutsu dir on existing git projects
 .jj
+
+# Ignore nvim files per-project config (exrc)
+.nvim.lua

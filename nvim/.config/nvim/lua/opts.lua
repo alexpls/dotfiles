@@ -6,6 +6,7 @@ vim.opt.undofile = true       -- persist undo history to file
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 1000     -- after this many seconds without input, save swap file
 vim.opt.timeoutlen = 300
+vim.opt.exrc = true           -- automatically execute .nvim.lua in cwd if file is in trust list
 
 -- Tabs & spaces
 vim.opt.tabstop = 4
