@@ -2,6 +2,9 @@
 # This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
 enter_accept = true
 
+# By default, search history for this host
+filter_mode = "host"
+
 [sync]
 # Enable sync v2 by default
 # This ensures that sync v2 is enabled for new installs only
