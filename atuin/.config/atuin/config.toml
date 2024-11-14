@@ -5,6 +5,11 @@ enter_accept = true
 # By default, search history for this host
 filter_mode = "host"
 
+# Less intrusive style
+style = "compact"
+inline_height = 10
+invert = true
+
 [sync]
 # Enable sync v2 by default
 # This ensures that sync v2 is enabled for new installs only
