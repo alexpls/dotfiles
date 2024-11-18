@@ -1,12 +1,11 @@
-vim.opt.number = true         -- show line numbers
-vim.opt.relativenumber = true -- relative line numbers
-vim.opt.scrolloff = 10        -- num screen lines to show above/below cursor
-vim.opt.colorcolumn = "80"    -- vertical marker at 80 cols
-vim.opt.undofile = true       -- persist undo history to file
+vim.opt.number = true      -- show line numbers
+vim.opt.scrolloff = 10     -- num screen lines to show above/below cursor
+vim.opt.colorcolumn = "80" -- vertical marker at 80 cols
+vim.opt.undofile = true    -- persist undo history to file
 vim.opt.signcolumn = "yes"
-vim.opt.updatetime = 1000     -- after this many seconds without input, save swap file
+vim.opt.updatetime = 1000  -- after this many seconds without input, save swap file
 vim.opt.timeoutlen = 300
-vim.opt.exrc = true           -- automatically execute .nvim.lua in cwd if file is in trust list
+vim.opt.exrc = true        -- automatically execute .nvim.lua in cwd if file is in trust list
 
 -- Tabs & spaces
 vim.opt.tabstop = 4

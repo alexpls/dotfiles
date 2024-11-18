@@ -3,10 +3,4 @@ return {
   { "tpope/vim-sleuth" },
   -- track time spent in editor
   { "wakatime/vim-wakatime", lazy = false },
-  {
-    "mbbill/undotree",
-    keys = {
-      { "<leader>u", vim.cmd.UndotreeToggle }
-    }
-  }
 }
