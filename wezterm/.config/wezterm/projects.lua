@@ -19,6 +19,40 @@ local function project_dirs()
   return projects
 end
 
+function module.list_for_display()
+  local active = wezterm.mux.get_active_workspace()
+  local workspaces = wezterm.mux.get_workspace_names()
+
+  local projects = {}
+
+  for i, val in ipairs(workspaces) do
+    local workspace_str = i .. ": " .. val
+    if active == val then
+      table.insert(projects, {
+        label = "[" .. workspace_str .. "]",
+        active = true,
+      })
+    else
+      table.insert(projects, {
+        label = " " .. workspace_str .. " ",
+        active = false
+      })
+    end
+  end
+
+  return projects
+end
+
+function module.switch_by_id(id, window, pane)
+  local workspaces = wezterm.mux.get_workspace_names()
+  local workspace = workspaces[id]
+  if not workspace then return end
+  window:perform_action(
+    wezterm.action.SwitchToWorkspace { name = workspace },
+    pane
+  )
+end
+
 function module.choose_project()
   local choices = {}
   for _, value in ipairs(project_dirs()) do
