@@ -32,6 +32,9 @@ function git-recent-committers {
 eval "$(fzf --zsh)"
 eval "$(atuin init zsh)"
 
+# List my open PRs for the repo at my cwd.
+alias prs="gh pr list --author \"@me\""
+
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
 fi
