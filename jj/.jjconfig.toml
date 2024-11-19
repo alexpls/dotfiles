@@ -10,3 +10,6 @@ editor = "nvim"
 sign-all = true
 backend = "gpg"
 key = "0C88A905360A073F"
+
+[git]
+push-bookmark-prefix = "alexpls/push-"
