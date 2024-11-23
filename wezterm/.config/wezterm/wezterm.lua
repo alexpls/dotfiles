@@ -19,20 +19,15 @@ config.macos_window_background_blur = 30
 config.window_decorations = "RESIZE"
 config.window_frame = {
   font = wezterm.font({ family = 'Berkeley Mono', weight = 'Bold' }),
-  font_size = 11,
+  font_size = 12,
 }
 
 wezterm.on('update-status', function(window, _)
   local segments = projects.list_for_display()
 
-  local color_scheme = window:effective_config().resolved_palette
-  local active_color = wezterm.color.parse(color_scheme.background)
-  local inactive_color
-  if appearance.is_dark() then
-    inactive_color = active_color:lighten(0.2)
-  else
-    inactive_color = active_color:darken(0.2)
-  end
+  local color_scheme = window:effective_config()
+  local active_color = wezterm.color.parse(color_scheme.window_frame.button_fg)
+  local inactive_color = active_color:darken(0.6)
 
   -- We'll build up the elements to send to wezterm.format in this table.
   local elements = {}
@@ -46,6 +41,8 @@ wezterm.on('update-status', function(window, _)
     table.insert(elements, { Background = { Color = 'none' } })
     table.insert(elements, { Text = seg.label })
   end
+
+  table.insert(elements, { Text = ' ' }) -- a bit of padding
 
   window:set_right_status(wezterm.format(elements))
 end)
