@@ -39,3 +39,7 @@ if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
 fi
 
+# BEGIN ZDI
+export DOCKER_FOR_MAC_ENABLED=true
+source /Users/alex.plescan/Code/zendesk/zdi/dockmaster/zdi.sh
+# END ZDI
