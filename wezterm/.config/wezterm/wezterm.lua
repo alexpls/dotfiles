@@ -12,14 +12,14 @@ else
 end
 
 config.font = wezterm.font('Berkeley Mono')
-config.font_size = 13
+config.font_size = 14
 
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 30
 config.window_decorations = "RESIZE"
 config.window_frame = {
   font = wezterm.font({ family = 'Berkeley Mono', weight = 'Bold' }),
-  font_size = 12,
+  font_size = 11,
 }
 
 wezterm.on('update-status', function(window, _)
