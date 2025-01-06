@@ -1,5 +1,13 @@
 hs.loadSpoon("EmmyLua") -- generate lua annotations for LSP
 
+-- send a DDC code to my MSI MPG 321URX which'll switch to displayport input.
+hs.hotkey.bind({ "ctrl", "shift" }, "=", function()
+  local display_id = "381C72C8-0CDA-4B71-A1CD-F8AFE90AB0ED"
+  local displayport_code = "15"
+  local command = "/opt/homebrew/bin/m1ddc display " .. display_id .. " set input " .. displayport_code
+  hs.execute(command)
+end)
+
 local function toggleWezterm()
   local term = hs.application.find("Wezterm")
   if term == nil then
