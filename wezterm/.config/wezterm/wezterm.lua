@@ -12,7 +12,7 @@ else
 end
 
 config.font = wezterm.font('Berkeley Mono')
-config.font_size = 14
+config.font_size = 15
 
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 30
