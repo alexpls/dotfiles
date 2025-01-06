@@ -16,3 +16,12 @@ push-bookmark-prefix = "alexpls/push-"
 
 [aliases]
 l = ["log", "-r", "ancestors(@)"]
+fresh = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+
+set -e
+
+jj git fetch
+jj new 'trunk()'
+""", ""]
+
