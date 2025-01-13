@@ -27,12 +27,12 @@ wezterm.on('update-status', function(window, _)
 
   local color_scheme = window:effective_config()
   local active_color = wezterm.color.parse(color_scheme.window_frame.button_fg)
-  local inactive_color = active_color:darken(0.6)
+  local inactive_color = active_color:darken(0.3)
 
   -- We'll build up the elements to send to wezterm.format in this table.
   local elements = {}
 
-  for i, seg in ipairs(segments) do
+  for _, seg in ipairs(segments) do
     if seg.active then
       table.insert(elements, { Foreground = { Color = active_color } })
     else
