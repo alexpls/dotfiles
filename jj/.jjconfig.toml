@@ -24,7 +24,6 @@ set -e
 jj git fetch
 jj new 'trunk()'
 """, ""]
-bs = ["bookmark", "set"]
 
 # Return the main branch for the current repo (as long
 # as it's named 'main' or 'master').
