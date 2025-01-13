@@ -24,4 +24,5 @@ set -e
 jj git fetch
 jj new 'trunk()'
 """, ""]
+bs = ["bookmark", "set"]
 
