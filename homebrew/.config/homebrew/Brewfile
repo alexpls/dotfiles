@@ -1,0 +1,59 @@
+# inspired by https://catskull.net/how-i-set-up-macos-for-web-development.html
+
+tap "buo/cask-upgrade" # brew cu -a to update all apps
+
+brew "asdf" # tool version manager
+brew "atuin" # smarter shell history
+brew "curl" # http requests
+brew "direnv" # .env files per directory
+brew "findutils" # more shell programs
+brew "fzf" # fuzzy find
+brew "gh" # github
+brew "git" # version control system
+brew "grep" # gnu version, saner flags
+brew "homebrew-ffmpeg/ffmpeg/ffmpeg" # media conversion
+brew "htop" # process manager
+brew "jj" # version control system
+brew "jq" # json parsing on cli
+brew "just" # make alternative
+brew "llm" # use llms on cli
+brew "make" # gnu version
+brew "mas" # mac app store cli
+brew "neovim" # text editor
+brew "parallel" # run commands in parallel
+brew "pure" # zsh prompt
+brew "ripgrep" # faster grep
+brew "rsync" # sync files between systems
+brew "stow" # pop dotfiles into place
+brew "tree" # tree view of files
+brew "vim" # text editor
+brew "watch" # watch for a program to complete
+brew "wget" # file downloader
+brew "yt-dlp" # youtube downloader
+brew "zsh" # shell
+
+cask "1password" # password manager
+cask "aerospace" # window manager
+cask "affinity-designer" # vector image editor
+cask "affinity-photo" # bitmap image editor
+cask "chatgpt" # llm
+cask "cleanshot" # screenshots
+cask "fantastical" # calendar
+cask "firefox" # browser
+cask "hammerspoon" # mac automation
+cask "homerow" # keyboard shortcuts
+cask "istat-menus" # menubar icons
+cask "jordanbaird-ice" # menubar manager
+cask "monitorcontrol" # external monitor control
+cask "netnewswire" # rss
+cask "obsidian" # notes
+cask "omnidisksweeper" # disk space visualiser
+cask "orbstack" # docker containers
+cask "raycast" # app launcher
+cask "syncthing" # folder sync
+cask "tailscale" # vpn
+cask "wezterm" # terminal emulator
+
+mas "Keynote", id: 409183694
+mas "Pages", id: 409201541
+

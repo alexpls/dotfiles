@@ -3,6 +3,7 @@ HISTFILESIZE=$HISTSIZE
 SAVEHIST=$HISTSIZE
 export HISTFILE="$HOME/.history"
 export ASDF_GOLANG_MOD_VERSION_ENABLED="true"
+export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile"
 
 EDITOR=nvim
 
