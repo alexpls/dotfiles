@@ -1,6 +1,7 @@
 # inspired by https://catskull.net/how-i-set-up-macos-for-web-development.html
 
 tap "buo/cask-upgrade" # brew cu -a to update all apps
+tap "homebrew-ffmpeg/ffmpeg" # bleeding edge ffmpeg
 
 brew "asdf" # tool version manager
 brew "atuin" # smarter shell history
