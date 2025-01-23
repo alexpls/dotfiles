@@ -14,6 +14,8 @@ alias gdc='git diff --cached'
 alias gap='git add --patch'
 alias gcm='git commit --message'
 
+alias n='nvim .'
+
 function external-ip {
   dig +short myip.opendns.com @resolver1.opendns.com
 }
