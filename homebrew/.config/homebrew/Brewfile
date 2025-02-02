@@ -51,6 +51,7 @@ cask "obsidian" # notes
 cask "omnidisksweeper" # disk space visualiser
 cask "orbstack" # docker containers
 cask "raycast" # app launcher
+cask "swiftbar" # custom menu bar programs
 cask "syncthing" # folder sync
 cask "tailscale" # vpn
 cask "wezterm" # terminal emulator
