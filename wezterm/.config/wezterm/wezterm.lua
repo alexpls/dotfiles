@@ -5,6 +5,10 @@ local smart_splits = require 'smart_splits'
 local act = wezterm.action
 local config = wezterm.config_builder()
 
+local is_linux = function()
+  return wezterm.target_triple:find("linux") ~= nil
+end
+
 if appearance.is_dark() then
   config.color_scheme = 'Tokyo Night'
 else
@@ -12,14 +16,16 @@ else
 end
 
 config.font = wezterm.font('Berkeley Mono')
-config.font_size = 15
+config.font_size = is_linux() and 12 or 15
 
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.97
 config.macos_window_background_blur = 30
-config.window_decorations = "RESIZE"
+if not is_linux() then
+  config.window_decorations = "RESIZE"
+end
 config.window_frame = {
   font = wezterm.font({ family = 'Berkeley Mono', weight = 'Bold' }),
-  font_size = 11,
+  font_size = is_linux() and 9 or 11,
 }
 
 wezterm.on('update-status', function(window, _)
