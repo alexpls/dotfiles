@@ -22,6 +22,8 @@ local function is_vim(pane)
   return pane:get_user_vars().IS_NVIM == 'true'
 end
 
+print("hi")
+
 local function resize(key)
   return wezterm.action_callback(function(window, pane)
     if is_vim(pane) then
@@ -88,12 +90,12 @@ function module.apply_to_config(config)
       },
     },
     {
-      key = '%',
+      key = 'v',
       mods = 'LEADER',
       action = act.SplitVertical { domain = 'CurrentPaneDomain' },
     },
     {
-      key = '"',
+      key = 's',
       mods = 'LEADER',
       action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
     },
