@@ -22,8 +22,6 @@ local function is_vim(pane)
   return pane:get_user_vars().IS_NVIM == 'true'
 end
 
-print("hi")
-
 local function resize(key)
   return wezterm.action_callback(function(window, pane)
     if is_vim(pane) then
