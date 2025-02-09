@@ -1,0 +1,76 @@
+/* gtk css properties only: https://docs.gtk.org/gtk3/css-properties.html */
+/* otf-font-awesome is required to be installed for icons */
+/* using tokyo night colour theme: https://lospec.com/palette-list/tokyo-night */
+
+* {
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+window#waybar {
+    background: rgba(31, 35, 53, 0.9);
+    color: rgb(192, 202, 245);
+    transition: background-color .5s;
+}
+
+.modules-left {
+    padding-left: 10px;
+}
+
+.modules-center {
+    padding: 0 10px;
+}
+
+.modules-right {
+    padding-right: 10px;
+}
+
+.module {
+    padding: 0 6px;
+}
+
+#idle_inhibitor.activated {
+    color: #ff9e64;
+}
+
+#idle_inhibitor.deactivated {
+    color: #545c7e;
+}
+
+#pulseaudio.muted {
+    color: #545c7e;
+}
+
+#idle_inhibitor.activated {
+    color: #ff9e64;
+}
+
+#idle_inhibitor.deactivated {
+    color: #545c7e;
+}
+
+#pulseaudio.muted {
+    color: #545c7e;
+}
+
+#pulseaudio.muted {
+    color: #545c7e;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    color: #545c7e;
+    border: 3px solid transparent;
+    border-radius: 0;
+}
+
+#workspaces button:hover {
+    color: rgb(192, 202, 245);
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: rgb(192, 202, 245);
+    border-bottom: 3px solid #545c7e;
+}
+

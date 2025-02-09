@@ -1,0 +1,2 @@
+export XCURSOR_SIZE=24
+export WOBSOCK=~/.config/wob.sock
