@@ -47,7 +47,7 @@
         "menu": "on-click",
         "menu-file": "~/.config/waybar/power_menu.xml",
         "menu-actions": {
-            "shutdown": "shutdown",
+            "shutdown": "shutdown now",
             "reboot": "reboot",
             "logout": "loginctl kill-session $XDG_SESSION_ID"
         }
