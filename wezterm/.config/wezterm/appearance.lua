@@ -5,7 +5,11 @@ local module = {}
 
 function module.is_dark()
   -- Hyprland defaults to dark theme
-  if wezterm.gui and not os.getenv("XDG_SESSION_DESKTOP") == "Hyprland" then
+  if os.getenv("XDG_SESSION_DESKTOP") == "Hyprland" then
+    return true
+  end
+
+  if wezterm.gui then
     -- Some systems report appearance like "Dark High Contrast"
     -- so let's just look for the string "Dark" and if we find
     -- it assume appearance is dark.
