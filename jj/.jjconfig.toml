@@ -7,7 +7,7 @@ default-command = "log"
 editor = "nvim"
 
 [signing]
-sign-all = true
+behavior = "own"
 backend = "gpg"
 key = "0C88A905360A073F"
 
