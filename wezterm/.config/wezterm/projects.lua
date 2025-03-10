@@ -9,7 +9,7 @@ local function h(path)
 end
 
 local function project_dirs()
-  local dirs = { h('Code/*'), h('Code/zendesk/*'), h('Projects/*') }
+  local dirs = { h('code/*'), h('Code/*'), h('Code/zendesk/*'), h('Projects/*') }
   local projects = { h(), h('dotfiles') }
   for _, dir in ipairs(dirs) do
     for _, p in ipairs(wezterm.glob(dir)) do
