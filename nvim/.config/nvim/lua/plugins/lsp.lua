@@ -76,12 +76,6 @@ return {
               },
             })
           end,
-
-          elixirls = function()
-            require("lspconfig").elixirls.setup {
-              cmd = { "/opt/homebrew/bin/elixir-ls" },
-            }
-          end,
         }
       })
     end
