@@ -1,0 +1,10 @@
+[Unit]
+Description=Starts a listener that runs my "on resume" script after KDE screen unlock
+After=graphical-session.target
+
+[Service]
+ExecStart=/home/alex/dotfiles/scripts/kde_unlock_listener
+Restart=always
+
+[Install]
+WantedBy=default.target

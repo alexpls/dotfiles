@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Things I wanna run when Linux "resumes", so either when the scree
+# is unlocked, or when I log in.
+
+echo "setting monitor volume to 100%"
+ddcutil setvcp 62 100
+

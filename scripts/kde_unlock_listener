@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DBUS="path='/org/freedesktop/ScreenSaver',interface='org.freedesktop.ScreenSaver',member='ActiveChanged'"
+
+dbus-monitor --session "$DBUS" |
+	grep --line-buffered "boolean false" |
+	while read -r _; do
+		echo "detected screen unlock, running scripts"
+		/home/alex/dotfiles/scripts/linux_on_resume
+	done

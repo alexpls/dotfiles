@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs my "on resume" script after login
+After=graphical-session.target
+
+[Service]
+ExecStart=/home/alex/dotfiles/scripts/linux_on_resume
+Type=oneshot
+
+[Install]
+WantedBy=default.target
