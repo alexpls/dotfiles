@@ -9,3 +9,12 @@ vim.keymap.set("n", "<leader>co", require("codeowners").print)
 
 -- Open diagnostic
 vim.keymap.set("n", "<leader>ce", vim.diagnostic.open_float)
+
+-- Copy current filepath to system clipboard. This is relative
+-- to the project's root.
+-- Mnemonic: File Yank
+vim.keymap.set("n", "<leader>fy", function()
+  local filepath = vim.fn.expand('%')
+  vim.fn.setreg('+', filepath)
+  vim.notify("Filepath copied to clipboard: " .. filepath, vim.log.levels.INFO)
+end)
