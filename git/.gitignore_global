@@ -9,3 +9,6 @@
 
 # Ignore nvim files per-project config (exrc)
 .nvim.lua
+
+# Ignore aider dirs
+.aider*
