@@ -7,6 +7,9 @@ export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile"
 
 EDITOR=nvim
 
+autoload -U promptinit; promptinit
+prompt pure
+
 alias ls='ls --color=auto'
 
 alias gss='git status'
