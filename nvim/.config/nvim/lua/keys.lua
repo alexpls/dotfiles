@@ -18,3 +18,10 @@ vim.keymap.set("n", "<leader>fy", function()
   vim.fn.setreg('+', filepath)
   vim.notify("Filepath copied to clipboard: " .. filepath, vim.log.levels.INFO)
 end)
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.keymap.set("n", "<leader>t", "<cmd>!go test ./...<CR>")
+  end
+})
