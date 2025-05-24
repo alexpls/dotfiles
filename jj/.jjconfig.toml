@@ -44,3 +44,5 @@ main = [
 	"""
 ]
 
+# Thanks: https://oppi.li/posts/configuring_jujutsu/
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
