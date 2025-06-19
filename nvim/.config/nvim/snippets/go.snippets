@@ -1,0 +1,8 @@
+snippet iferrr "unwrapped if err != nil" b
+	if err != nil {
+		return ${1:nil}, err
+	}
+snippet iferr "wrapped if err != nil" b
+	if err != nil {
+		return ${2:nil}, fmt.Errorf("${1}: %w", err)
+	}
