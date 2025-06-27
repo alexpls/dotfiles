@@ -16,11 +16,10 @@ return {
     opts = {
       keymap = {
         preset = 'default',
-        ['<Enter>'] = { 'accept', 'fallback' },
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
         ['<Tab>'] = { 'select_next', 'fallback' },
       },
-      completion = { documentation = { auto_show = false } },
+      completion = { documentation = { auto_show = true } },
       snippets = { preset = 'luasnip' },
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
