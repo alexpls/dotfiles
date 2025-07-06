@@ -11,9 +11,6 @@ behavior = "own"
 backend = "gpg"
 key = "0C88A905360A073F"
 
-[git]
-push-bookmark-prefix = "alexpls/push-"
-
 [aliases]
 l = ["log", "-r", "ancestors(@)"]
 fresh = ["util", "exec", "--", "bash", "-c", """
@@ -46,3 +43,6 @@ main = [
 
 # Thanks: https://oppi.li/posts/configuring_jujutsu/
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
+[templates]
+git_push_bookmark = '"alexpls/push-" ++ change_id.short()'
