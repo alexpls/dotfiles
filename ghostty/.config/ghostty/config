@@ -1,0 +1,5 @@
+theme = dark:tokyonight_moon,light:tokyonight-day
+background-opacity = 0.97
+background-blur = true
+font-family = Berkeley Mono
+font-size = 15
