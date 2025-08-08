@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Get the session number from the argument
+session_num=$1
+
+# Get the session name at that position
+session_name=$(tmux list-sessions -F '#{session_name}' | sed -n "${session_num}p")
+
+# Switch to that session if it exists
+if [ -n "$session_name" ]; then
+    tmux switch-client -t "$session_name"
+fi

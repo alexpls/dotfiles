@@ -5,7 +5,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd --max-depth 1 --min-depth 1 --type directory . ~/code/ ~/code/zendesk/ ~/ | fzf)
+    selected=$(fd --max-depth 1 --min-depth 1 --type directory . ~/code/ ~/code/zendesk/ ~/ ~/projects | fzf)
 fi
 
 if [[ -z $selected ]]; then

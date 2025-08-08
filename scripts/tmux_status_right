@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+current_session=$(tmux display-message -p '#S')
+counter=1
+output=""
+
+while IFS= read -r session; do
+    if [ "$session" = "$current_session" ]; then
+        output="${output}${counter}:${session}* "
+    else
+        output="${output}${counter}:${session}- "
+    fi
+    ((counter++))
+done < <(tmux list-sessions -F '#{session_name}')
+
+echo -n "${output% }"
