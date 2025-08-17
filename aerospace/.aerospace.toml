@@ -44,6 +44,10 @@ run = ['move-node-to-workspace 4']
 if.app-id = 'com.1password.1password'
 run = ['layout floating']
 
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ['move-node-to-workspace 3']
+
 [mode.main.binding]
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
