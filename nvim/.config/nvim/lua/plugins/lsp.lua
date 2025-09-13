@@ -5,7 +5,8 @@ return {
     cmd = "LspInfo",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      vim.lsp.enable('ruby_lsp')
+      -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+      vim.lsp.enable("ruby_lsp")
 
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
