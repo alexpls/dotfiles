@@ -7,9 +7,6 @@ export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile"
 
 EDITOR=nvim
 
-autoload -U promptinit; promptinit
-prompt pure
-
 alias ls='ls --color=auto'
 
 alias gss='git status'
@@ -40,6 +37,8 @@ eval "$(atuin init zsh)"
 
 # List my open PRs for the repo at my cwd.
 alias prs="gh pr list --author \"@me\""
+
+eval "$(starship init zsh)"
 
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local

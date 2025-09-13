@@ -1,0 +1,19 @@
+format = """
+$username\
+$hostname\
+$directory\
+$cmd_duration\
+$line_break\
+$character"""
+
+[directory]
+style = "blue"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
