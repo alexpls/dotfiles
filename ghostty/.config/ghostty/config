@@ -1,4 +1,4 @@
-theme = dark:tokyonight_moon,light:tokyonight-day
+theme = dark:TokyoNight Moon,light:TokyoNight Day
 background-opacity = 0.97
 background-blur = true
 window-padding-x = 8
