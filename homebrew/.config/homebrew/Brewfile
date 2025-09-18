@@ -22,9 +22,9 @@ brew "make" # gnu version
 brew "mas" # mac app store cli
 brew "neovim" # text editor
 brew "parallel" # run commands in parallel
-brew "pure" # zsh prompt
 brew "ripgrep" # faster grep
 brew "rsync" # sync files between systems
+brew "starship" # shell prompt
 brew "stow" # pop dotfiles into place
 brew "tree" # tree view of files
 brew "vim" # text editor
@@ -41,8 +41,8 @@ cask "chatgpt" # llm
 cask "cleanshot" # screenshots
 cask "fantastical" # calendar
 cask "firefox" # browser
+cask "ghostty" # terminal emulator
 cask "hammerspoon" # mac automation
-cask "homerow" # keyboard shortcuts
 cask "istat-menus" # menubar icons
 cask "jordanbaird-ice" # menubar manager
 cask "monitorcontrol" # external monitor control
@@ -54,7 +54,7 @@ cask "raycast" # app launcher
 cask "swiftbar" # custom menu bar programs
 cask "syncthing" # folder sync
 cask "tailscale" # vpn
-cask "wezterm" # terminal emulator
+case "zed" # editor
 
 mas "Keynote", id: 409183694
 mas "Pages", id: 409201541
