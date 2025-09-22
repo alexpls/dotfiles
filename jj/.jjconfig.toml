@@ -46,3 +46,6 @@ tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
 [templates]
 git_push_bookmark = '"alexpls/push-" ++ change_id.short()'
+
+[colors]
+muted = { fg = "bright black", bold = false, underline = false }

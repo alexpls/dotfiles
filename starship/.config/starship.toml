@@ -22,13 +22,13 @@ style = "yellow"
 command = '''jj log --ignore-working-copy --no-graph --color always \
   -r "@" \
   -T "
-  surround('jj(', ')', separate(' ',
+  surround(label('muted', 'jj('), label('muted', ')'), separate(' ',
     change_id.shortest(8),
-    if(empty, 'empty'),
-    coalesce(
+    if(empty, label('muted', 'empty')),
+    label('muted', coalesce(
       truncate_end(16, description.first_line(), '...'),
       '-'
-    )
+    ))
   ))
   "
 '''
