@@ -1,6 +1,5 @@
 format = """
 $directory\
-${custom.jj}\
 $cmd_duration\
 $line_break\
 $character"""
@@ -16,21 +15,3 @@ vimcmd_symbol = "[❮](green)"
 [cmd_duration]
 format = "[$duration]($style) "
 style = "yellow"
-
-# inspiration: https://github.com/jj-vcs/jj/wiki/Starship
-[custom.jj]
-command = '''jj log --ignore-working-copy --no-graph --color always \
-  -r "@" \
-  -T "
-  surround(label('muted', 'jj('), label('muted', ')'), separate(' ',
-    change_id.shortest(8),
-    if(empty, label('muted', 'empty')),
-    label('muted', coalesce(
-      truncate_end(16, description.first_line(), '...'),
-      '-'
-    ))
-  ))
-  "
-'''
-when = "jj --ignore-working-copy root"
-
