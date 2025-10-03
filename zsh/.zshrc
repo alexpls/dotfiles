@@ -3,7 +3,6 @@ HISTSIZE=999999
 HISTFILESIZE=$HISTSIZE
 SAVEHIST=$HISTSIZE
 export HISTFILE="$HOME/.history"
-export ASDF_GOLANG_MOD_VERSION_ENABLED="true"
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile"
 
 alias ls='ls --color=auto'
@@ -21,7 +20,7 @@ n() {
 compdef n=nvim # tab auto-completions for the 'n' alias
 
 eval "$(fzf --zsh)"
-eval "$(atuin init zsh)"
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 
 if [[ -f ~/.zshrc_local ]]; then

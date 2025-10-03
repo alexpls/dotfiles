@@ -3,14 +3,15 @@
 tap "buo/cask-upgrade" # brew cu -a to update all apps
 tap "homebrew-ffmpeg/ffmpeg" # bleeding edge ffmpeg
 
-brew "asdf" # tool version manager
 brew "atuin" # smarter shell history
 brew "curl" # http requests
 brew "direnv" # .env files per directory
+brew "fd" # find files
 brew "findutils" # more shell programs
 brew "fzf" # fuzzy find
 brew "gh" # github
 brew "git" # version control system
+brew "gnupg" # gpg
 brew "grep" # gnu version, saner flags
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg" # media conversion
 brew "htop" # process manager
@@ -20,12 +21,14 @@ brew "just" # make alternative
 brew "llm" # use llms on cli
 brew "make" # gnu version
 brew "mas" # mac app store cli
+brew "mise" # tool version manager
 brew "neovim" # text editor
 brew "parallel" # run commands in parallel
 brew "ripgrep" # faster grep
 brew "rsync" # sync files between systems
 brew "starship" # shell prompt
 brew "stow" # pop dotfiles into place
+brew "tmux" # multiplexer
 brew "tree" # tree view of files
 brew "vim" # text editor
 brew "watch" # watch for a program to complete
@@ -34,7 +37,7 @@ brew "yt-dlp" # youtube downloader
 brew "zsh" # shell
 
 cask "1password" # password manager
-cask "aerospace" # window manager
+cask "nikitabobko/tap/aerospace" # window manager
 cask "affinity-designer" # vector image editor
 cask "affinity-photo" # bitmap image editor
 cask "chatgpt" # llm
@@ -52,9 +55,8 @@ cask "omnidisksweeper" # disk space visualiser
 cask "orbstack" # docker containers
 cask "raycast" # app launcher
 cask "swiftbar" # custom menu bar programs
-cask "syncthing" # folder sync
-cask "tailscale" # vpn
-case "zed" # editor
+cask "syncthing-app" # folder sync
+cask "tailscale-app" # vpn
 
 mas "Keynote", id: 409183694
 mas "Pages", id: 409201541
