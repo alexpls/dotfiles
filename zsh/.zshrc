@@ -22,6 +22,7 @@ compdef n=nvim # tab auto-completions for the 'n' alias
 eval "$(fzf --zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
+eval "$(atuin init zsh)"
 
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
