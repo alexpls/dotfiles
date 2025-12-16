@@ -6,3 +6,15 @@ window-padding-y = 8
 font-family = Berkeley Mono Nerd Font Mono
 font-size = 14
 keybind = shift+enter=text:\n
+macos-option-as-alt = true
+
+# tmux window switching: ctrl-p + num
+keybind = super+digit_1=text:\x10\x31
+keybind = super+digit_2=text:\x10\x32
+keybind = super+digit_3=text:\x10\x33
+keybind = super+digit_4=text:\x10\x34
+keybind = super+digit_5=text:\x10\x35
+keybind = super+digit_6=text:\x10\x36
+keybind = super+digit_7=text:\x10\x37
+keybind = super+digit_8=text:\x10\x38
+keybind = super+digit_9=text:\x10\x39
