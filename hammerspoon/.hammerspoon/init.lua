@@ -8,10 +8,10 @@ hs.hotkey.bind({ "ctrl", "shift" }, "=", function()
   hs.execute(command)
 end)
 
-local function toggleWezterm()
-  local term = hs.application.find("Wezterm")
+local function toggleTerm()
+  local term = hs.application.find("Ghostty")
   if term == nil then
-    term = hs.application.open("Wezterm.app")
+    term = hs.application.open("Ghostty.app")
   end
   if term:isFrontmost() then
     term:hide()
@@ -20,11 +20,11 @@ local function toggleWezterm()
   end
 end
 
-hs.hotkey.bind({ "cmd" }, "escape", toggleWezterm)
+hs.hotkey.bind({ "cmd" }, "escape", toggleTerm)
 
 local listener = hs.noises.new(function(num)
   if num == 3 then
-    toggleWezterm()
+    toggleTerm()
   end
 end)
 
