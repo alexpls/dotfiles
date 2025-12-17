@@ -9,4 +9,5 @@ session_name=$(tmux list-sessions -F '#{session_name}' | sed -n "${session_num}p
 # Switch to that session if it exists
 if [ -n "$session_name" ]; then
     tmux switch-client -t "$session_name"
+    tmux refresh-client -S # force update right status
 fi
