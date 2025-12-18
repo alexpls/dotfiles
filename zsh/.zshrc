@@ -23,6 +23,7 @@ eval "$(fzf --zsh)"
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
+eval "$(direnv hook zsh)"
 
 if [[ -f ~/.zshrc_local ]]; then
   source ~/.zshrc_local
