@@ -1,0 +1,15 @@
+// https://zed.dev/docs/key-bindings
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-c": "workspace::CopyRelativePath"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !menu",
+    "bindings": {
+      "ctrl-l": ["workspace::SendKeystrokes", ": n o h l enter"]
+    }
+  }
+]
