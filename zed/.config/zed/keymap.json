@@ -3,13 +3,15 @@
   {
     "context": "Editor",
     "bindings": {
-      "cmd-shift-c": "workspace::CopyRelativePath"
-    }
+      "cmd-shift-c": "workspace::CopyRelativePath",
+    },
   },
   {
-    "context": "Editor && vim_mode == normal && !menu",
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !menu",
     "bindings": {
-      "ctrl-l": ["workspace::SendKeystrokes", ": n o h l enter"]
-    }
-  }
+      "ctrl-l": ["workspace::SendKeystrokes", ": n o h l enter"],
+      "space g b": "editor::OpenPermalinkToLine",
+      "space g y": "editor::CopyPermalinkToLine",
+    },
+  },
 ]
