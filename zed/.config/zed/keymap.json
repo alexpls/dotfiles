@@ -12,6 +12,8 @@
       "ctrl-l": ["workspace::SendKeystrokes", ": n o h l enter"],
       "space g b": "editor::OpenPermalinkToLine",
       "space g y": "editor::CopyPermalinkToLine",
+      "space t t": ["task::Spawn", { "task_name": "run test" }],
+      "space t r": "task::Rerun",
     },
   },
 ]
