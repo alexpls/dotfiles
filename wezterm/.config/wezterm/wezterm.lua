@@ -107,6 +107,12 @@ for i = 1, 9 do
       projects.switch_by_id(i, window, pane)
     end),
   })
+  -- tmux window switching: super-num sends alt-num to tmux
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'SUPER',
+    action = act.SendString('\x1b' .. tostring(i)),
+  })
 end
 
 smart_splits.apply_to_config(config)
