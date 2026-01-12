@@ -40,13 +40,11 @@ cask "1password" # password manager
 cask "nikitabobko/tap/aerospace" # window manager
 cask "affinity-designer" # vector image editor
 cask "affinity-photo" # bitmap image editor
-cask "chatgpt" # llm
 cask "cleanshot" # screenshots
 cask "fantastical" # calendar
 cask "firefox" # browser
 cask "ghostty" # terminal emulator
 cask "hammerspoon" # mac automation
-cask "istat-menus" # menubar icons
 cask "jordanbaird-ice" # menubar manager
 cask "monitorcontrol" # external monitor control
 cask "netnewswire" # rss
