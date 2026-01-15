@@ -18,18 +18,6 @@ return {
       defaults = {
         vimgrep_arguments = { "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--hidden", "-g", "!.git" },
       },
-      extensions = {
-        smart_open = {
-          mappings = {
-            i = {
-              -- works around smart_open overriding ctrl-w keybind for deleting
-              -- word. should be able to remove this once this issue is resolved:
-              -- https://github.com/danielfalk/smart-open.nvim/issues/71
-              ["<C-w>"] = function() vim.api.nvim_input("<c-s-w>") end,
-            },
-          },
-        },
-      },
     },
     keys = {
       {
@@ -83,20 +71,4 @@ return {
       },
     },
   },
-  -- telescope extension, sorts results by most relevant
-  {
-    "danielfalk/smart-open.nvim",
-    config = function()
-      require("telescope").load_extension("smart_open")
-    end,
-    dependencies = { "kkharji/sqlite.lua" },
-    keys = {
-      {
-        "<leader><leader>",
-        function()
-          require("telescope").extensions.smart_open.smart_open()
-        end
-      },
-    },
-  }
 }
