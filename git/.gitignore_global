@@ -10,5 +10,6 @@
 # Ignore nvim files per-project config (exrc)
 .nvim.lua
 
-# Ignore aider dirs
-.aider*
+# Local claude settings should never be committed
+.claude/settings.local.json
+
