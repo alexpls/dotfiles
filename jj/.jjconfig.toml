@@ -21,6 +21,8 @@ set -e
 jj git fetch
 jj new 'trunk()'
 """, ""]
+# Excludes generated files
+diffgo = ["diff", "~glob:**/*_templ.go ~glob:**/*.sql.go"] 
 
 # Return the main branch for the current repo (as long
 # as it's named 'main' or 'master').
