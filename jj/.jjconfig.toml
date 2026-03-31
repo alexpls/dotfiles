@@ -46,6 +46,8 @@ main = [
 # Thanks: https://oppi.li/posts/configuring_jujutsu/
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 
+pushmine = ["git", "push", "-b", "alexpls/*"]
+
 [templates]
 git_push_bookmark = '"alexpls/push-" ++ change_id.short()'
 
