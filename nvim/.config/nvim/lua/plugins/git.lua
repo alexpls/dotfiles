@@ -7,6 +7,13 @@ return {
       -- browse remotes (e.g. github)
       { "tpope/vim-rhubarb" },
     },
+    config = function()
+      -- TODO: hack. Remove once the underlying issue is fixed:
+      -- https://github.com/tpope/vim-fugitive/issues/2441
+      vim.api.nvim_create_user_command("Browse", function(opts)
+        vim.fn.system({ "open", opts.fargs[1] })
+      end, { nargs = 1 })
+    end,
     keys = {
       -- Browse git remote
       { "<leader>gb", "<cmd>GBrowse<CR>" },
