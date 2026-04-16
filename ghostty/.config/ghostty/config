@@ -5,7 +5,6 @@ window-padding-x = 8
 window-padding-y = 8
 font-family = Berkeley Mono Nerd Font Mono
 font-size = 14
-keybind = shift+enter=text:\n
 macos-option-as-alt = true
 
 # tmux window switching: super-num sends alt-num to tmux
