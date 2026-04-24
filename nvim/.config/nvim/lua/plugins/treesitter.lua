@@ -1,44 +1,20 @@
 return {
-  -- syntax highlighting, objects, treesitter!
+  -- syntax highlighting, treesitter!
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
     config = function()
-      local configs = require("nvim-treesitter.configs")
+      require("nvim-treesitter").install({
+        "lua", "vim", "vimdoc", "javascript", "html", "css",
+        "typescript", "ruby", "go", "markdown", "yaml",
+      })
 
-      configs.setup({
-        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "html", "css", "elixir", "heex", "typescript", "ruby", "go", "markdown", "yaml", },
-        sync_install = true,
-        highlight = { enable = true },
-        indent = { enable = true },
-        textobjects = {
-          select = {
-            enable = true,
-            keymaps = {
-              ["ab"] = "@block.outer",
-              ["ib"] = "@block.inner",
-            },
-          },
-          move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-              ["]m"] = "@function.outer",
-            },
-            goto_next_end = {
-              ["]M"] = "@function.outer",
-            },
-            goto_previous_start = {
-              ["[m"] = "@function.outer",
-            },
-            goto_previous_end = {
-              ["[M"] = "@function.outer",
-            },
-          },
-        },
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { '<filetype>' },
+        callback = function() vim.treesitter.start() end,
       })
     end,
   },
-  -- textobjects for treesitter, to help with selecting ruby blocks
-  { "nvim-treesitter/nvim-treesitter-textobjects" },
 }
