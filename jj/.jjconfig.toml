@@ -43,8 +43,7 @@ main = [
 	"""
 ]
 
-# Thanks: https://oppi.li/posts/configuring_jujutsu/
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+tug = ["bookmark", "advance", "--to", "@-"]
 
 pushmine = ["git", "push", "-b", "alexpls/*"]
 
